@@ -1,0 +1,37 @@
+{
+    "name": "todo",
+    "version": "1.0.0",
+    "description": "The classi TODO app JS",
+    "main": "webpack.config.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "webpack",
+        "watch": "webpack --watch"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Ferm0494/TODO-APP.git"
+    },
+    "author": "Ferm0494/Flakster",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Ferm0494/TODO-APP/issues"
+    },
+    "homepage": "https://github.com/Ferm0494/TODO-APP#readme",
+    "devDependencies": {
+        "autoprefixer": "^9.8.6",
+        "css-loader": "^4.2.0",
+        "file-loader": "^6.0.0",
+        "postcss-loader": "^3.0.0",
+        "precss": "^4.0.0",
+        "sass-loader": "^9.0.2",
+        "style-loader": "^1.2.1",
+        "webpack": "^4.44.1",
+        "webpack-cli": "^3.3.12"
+    },
+    "dependencies": {
+        "bootstrap": "^4.5.0",
+        "jquery": "^3.5.1",
+        "popper.js": "^1.16.1"
+    }
+}
