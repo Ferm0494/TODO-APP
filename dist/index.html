@@ -18,9 +18,23 @@
         </form>
 
         <form>
-            <label for="new_project"> or Create a new project</label>
-            <input id="projectNameField" type="text" />
+            <label for="newProject"> or Create a new project</label>
+            <input id="projectNameField" name="newProject" type="text" />
             <input id="createProject" type="submit" value="Create project" />
+        </form>
+        <form action>
+            <label for="title">Title</label>
+            <input id="title" name="title" type="text" required><br>
+            <label for="description">Description</label>
+            <textarea id="description" name="description" type= "textarea"></textarea><br>
+            <label for="dueDate">Due date</label>
+            <input id="duedate" name="dueDate" type="date"><br>
+            <label for="priority">Priority</label>
+            <input id="priority" name="priority" type="number"><br>
+            <label for="notes">Notes</label>
+            <textarea id="notes" name="notes" type= "textarea"></textarea><br>
+           
+            <input id="addTask" type="submit" value= "Add task">
         </form>
     </div>
 
