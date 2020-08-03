@@ -1,9 +1,11 @@
-const project = (title = true) => {
+import library from "./libraries"
 
-    const projects = JSON.parse(localStorage.getItem('projects')) || [];
+const project = (title) => {
+
+    const projects = library()
     const addProject = () => {
         title = title.trim()
-        if (!projects.includes(title) && title !== "" && title !== undefined && title !== true) {
+        if (!projects.includes(title) && title !== "" && title !== undefined) {
 
             projects.push(title);
             console.log(`Adding..${projects}`);
@@ -12,14 +14,12 @@ const project = (title = true) => {
         } else if (projects.includes(title)) {
 
             alert("Element already exists!")
-        } else if (!title || title === "") {
+        } else if (title === "") {
             alert("Project cant be empty!")
         }
     }
     addProject()
-    return {
-        projects
-    }
+
 }
 
 export default project;

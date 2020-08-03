@@ -1,10 +1,11 @@
 import project from './js/project'
+import library from './js/libraries'
 
 const createProject = () => {
 
     const projectName = document.getElementById("projectNameField").value;
     const lib = project(projectName)
-    populateSelect(lib.projects);
+    populateSelect(library());
 }
 
 const populateSelect = (arr) => {
@@ -28,4 +29,4 @@ document.getElementById('createProject').addEventListener('click', function(a) {
 });
 
 // localStorage.clear()
-populateSelect(project().projects)
+populateSelect(library())
