@@ -1,15 +1,28 @@
-import tasks from './tasks';
+import {tasks} from './tasks';
 import {
-  taskCard
+  taskCard,
+  taskContainerList,
+  parentTaskCard
 } from './components';
 
 const renderTask = (task) => {
-  const parent = taskCard.parentNode;
+  console.log(`This is card ${taskCard}`);
+  if(taskContainerList.classList.contains('d-none')){
+    taskContainerList.classList.remove('d-none')
+  }
+  
   const card = taskCard.cloneNode(true);
-  card.classList.remove('d-none');
   let children = card.children[0].children;
-  children[0].innerHTML = task.title;
+  children[0].innerHTML = `Title: ${task.title}`;
+  children[1].innerHTML = `Description: ${task.description}`
+  children[2].innerHTML = `Due Date : ${task.dueDate}`
+  children[3].innerHTML = `Priority : ${task.priority}`
+  children[4].innerHTML = `Notes : ${task.notes}`
+  parentTaskCard.appendChild(card)
+  card.classList.add("real-task")
+  card.classList.remove('d-none');
 }
+
 
 const task = (inputs, project) =>{ 
 
@@ -55,4 +68,7 @@ const task = (inputs, project) =>{
 }
 
 
-export default task;
+export{
+  task,
+  renderTask,
+};

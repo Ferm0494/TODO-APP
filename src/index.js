@@ -3,13 +3,13 @@ import {
   deleteProject
 } from './js/project'
 import library from './js/libraries'
-import task from './js/task'
 import {
   taskForm,
   deleteProjectBtn,
   selectProjects
 } from './js/components'
-
+import {task} from './js/task'
+import {renderTasks,tasks} from './js/tasks'
 const createProject = () => {
 
     const projectName = document.getElementById("projectNameField")
@@ -66,6 +66,12 @@ deleteProjectBtn.addEventListener('click', function(e){
   populateSelect(deleteProject(selectProjects.value));
 
 });
+
+selectProjects.addEventListener('change', function(e){
+    let arr = tasks(selectProjects.value);
+    console.log(JSON.stringify(arr));
+    renderTasks(arr)
+})
 
 
 
