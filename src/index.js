@@ -5,8 +5,8 @@ import tasks from './js/tasks'
 
 const createProject = () => {
 
-    const projectName = document.getElementById("projectNameField").value;
-    const lib = project(projectName)
+    const projectName = document.getElementById("projectNameField")
+    project(projectName)
     populateSelect(library());
 }
 
@@ -32,14 +32,19 @@ document.getElementById('createProject').addEventListener('click', function(a) {
 
 document.getElementById('addTask').addEventListener('click', function(e){
   e.preventDefault();
-  const title = document.getElementById('title');
-  const description = document.getElementById('description');
-  const dueDate = document.getElementById('dueDate');
-  const priority = document.getElementById('priority');
-  const notes = document.getElementById('notes');
+  const inputs = document.getElementsByTagName('form')[2].getElementsByClassName('form2')
   const project = document.getElementById('projects').value
-  task(title, description, dueDate, priority, notes, project);
+  let newTask = {
+    project,
+    title: inputs[0].value,
+    description: inputs[1].value,
+    dueDate: inputs[2].value,
+    priority: inputs[3].value,
+    notes: inputs[4].value,
+  }
+  console.log(`Task index ${JSON.stringify(newTask)}`);
+   task(newTask);
 })
 
- //localStorage.clear()
+    // localStorage.clear()
 populateSelect(library())

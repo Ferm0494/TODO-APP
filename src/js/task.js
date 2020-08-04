@@ -1,14 +1,16 @@
 import tasks from './tasks';
 
-const task = (title, desc, due, priority, notes, project ) =>{
-  const newTask = {title,desc,due,priority,notes}; 
-  console.log()
-  const tasks_list = tasks(project);
+const task = (newTask) =>{ 
+  
+  const taskList = tasks(newTask.project);
+  console.log(`TASKLIST ${taskList}`);
   const addTask = () => {
-    tasks_list.push(newTask);
-    localStorage.setItem(project, JSON.stringify(tasks));
-    console.log(tasks_list)
+   
+    taskList.push(newTask);
+    console.log(`all tasks for ${newTask.project} are : ${JSON.stringify(taskList)}`);
+    localStorage.setItem(newTask.project, JSON.stringify(taskList));
   }
+  
   addTask()
 }
 
