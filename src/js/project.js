@@ -21,7 +21,6 @@ const project = (obj) => {
        const title = obj.value.trim()
         if (validate()){
           projects.push(title);
-          console.log(`Adding..${projects}`);
           localStorage.setItem('projects', JSON.stringify(projects));
           alert("Project successfully added!")
         }
@@ -31,4 +30,14 @@ const project = (obj) => {
 
 }
 
-export default project;
+const deleteProject = (value) => {
+  console.log("here")
+  const newLibrary = library().filter(e => e !== value); 
+  localStorage.setItem('projects', JSON.stringify(newLibrary));
+  return newLibrary;
+}
+
+export {
+  project,
+  deleteProject,
+} 

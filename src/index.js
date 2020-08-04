@@ -1,10 +1,14 @@
-import project from './js/project'
+import {
+  project,
+  deleteProject
+} from './js/project'
 import library from './js/libraries'
 import task from './js/task'
 import tasks from './js/tasks'
 import {
   taskForm,
-  deleteProjectBtn
+  deleteProjectBtn,
+  selectProjects
 } from './js/components'
 
 const createProject = () => {
@@ -16,11 +20,16 @@ const createProject = () => {
 
 
 const validate = (arr) =>{
-  if (arr.length >0 ){
+  console.log(arr)
+  if (arr.length > 0 ){
     taskForm.classList.remove('d-none');
     deleteProjectBtn.classList.remove('d-none');
     return true;
   }else{
+    if (selectProjects.hasChildNodes){
+      selectProjects.remove(selectProjects.firstChild);
+    }
+    console.log(`children: ${selectProjects.childElementCount}`);
     taskForm.classList.add('d-none');
     deleteProjectBtn.classList.add('d-none');
     return false;
@@ -28,14 +37,11 @@ const validate = (arr) =>{
 }
 
 const populateSelect = (arr) => {
-  console.log(`This is arr ${arr}`)
-  const selectProjects = document.getElementById('projects');
-
+  console.log(`populate select ${arr}`)
   if (validate(arr)){
       while (selectProjects.firstChild) {
           selectProjects.removeChild(selectProjects.firstChild);
       }
-  
       arr.forEach(element => {
           const option = document.createElement('option');
           option.innerHTML = element;
@@ -58,6 +64,12 @@ document.getElementById('addTask').addEventListener('click', function(e){
 
    task(inputs, project);
 })
+
+deleteProjectBtn.addEventListener('click', function(e){
+  e.preventDefault();
+  populateSelect(deleteProject(selectProjects.value));
+
+});
 
 
 
