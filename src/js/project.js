@@ -31,9 +31,9 @@ const project = (obj) => {
 }
 
 const deleteProject = (value) => {
-  console.log("here")
   const newLibrary = library().filter(e => e !== value); 
   localStorage.setItem('projects', JSON.stringify(newLibrary));
+  localStorage.removeItem(value);
   return newLibrary;
 }
 

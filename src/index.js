@@ -4,7 +4,6 @@ import {
 } from './js/project'
 import library from './js/libraries'
 import task from './js/task'
-import tasks from './js/tasks'
 import {
   taskForm,
   deleteProjectBtn,
@@ -20,7 +19,6 @@ const createProject = () => {
 
 
 const validate = (arr) =>{
-  console.log(arr)
   if (arr.length > 0 ){
     taskForm.classList.remove('d-none');
     deleteProjectBtn.classList.remove('d-none');
@@ -37,7 +35,6 @@ const validate = (arr) =>{
 }
 
 const populateSelect = (arr) => {
-  console.log(`populate select ${arr}`)
   if (validate(arr)){
       while (selectProjects.firstChild) {
           selectProjects.removeChild(selectProjects.firstChild);
@@ -49,7 +46,6 @@ const populateSelect = (arr) => {
       });
     }
 }
-
 
 
 document.getElementById('createProject').addEventListener('click', function(a) {
