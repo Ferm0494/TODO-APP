@@ -1,4 +1,15 @@
 import tasks from './tasks';
+import {
+  taskCard
+} from './components';
+
+const renderTask = (task) => {
+  const parent = taskCard.parentNode;
+  const card = taskCard.cloneNode(true);
+  card.classList.remove('d-none');
+  let children = card.children[0].children;
+  children[0].innerHTML = task.title;
+}
 
 const task = (inputs, project) =>{ 
 
@@ -36,10 +47,12 @@ const task = (inputs, project) =>{
       taskList.push(newTask);
       console.log(`all tasks for ${newTask.project} are : ${JSON.stringify(taskList)}`);
       localStorage.setItem(newTask.project, JSON.stringify(taskList));
+      renderTask(newTask);
     }
   }
   
   addTask()
 }
+
 
 export default task;
