@@ -55,10 +55,34 @@
               <li class="task d-none">
                 <div class="container rounded p-4">
                   <h6></h6>
-                  <p></p>
-                  <p></p>
-                  <p></p>
-                  <p></p>
+                  <form>
+                    <label for="description">Description</label>
+                    <textarea
+                      class="form3"
+                      name="description"
+                      type="textarea"
+                    ></textarea
+                    ><br />
+                    <label for="dueDate">Due date</label>
+                    <input class="form3" name="dueDate" type="date" /><br />
+                    <label for="priority">Priority</label>
+                    <input
+                      class="form3"
+                      name="priority"
+                      type="number"
+                      min="1"
+                      max="3"
+                    /><br />
+                    <label for="notes">Notes</label>
+                    <textarea
+                      class="form3"
+                      name="notes"
+                      type="textarea"
+                    ></textarea
+                    ><br />
+
+                    <input class="form3" type="submit" value="Edit Task" />
+                  </form>
                 </div>
               </li>
             </ul>

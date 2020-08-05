@@ -5,19 +5,21 @@ import {
 import {
     taskCard,
     taskContainerList,
-    parentTaskCard
+    parentTaskCard,
 } from './components';
 
+const editTask = (form) => {
+    //Work on ediTask.
 
-
+}
 const deleteTask = (task) => {
     let idProject = task.project
     let arr = tasks(idProject)
-    
-    let newArr = arr.filter( x =>
+
+    let newArr = arr.filter(x =>
         x.title !== task.title
     )
-        
+
     console.log(`New arr ${JSON.stringify(newArr)}`)
     localStorage.setItem(idProject, JSON.stringify(newArr));
     renderTasks(newArr);
@@ -38,29 +40,35 @@ const renderTask = (task) => {
     if (taskContainerList.classList.contains('d-none')) {
         taskContainerList.classList.remove('d-none')
     }
-    
+
     const card = taskCard.cloneNode(true);
-    switch(parseInt(task.priority)) {
+    switch (parseInt(task.priority)) {
         case 1:
             card.classList.add('bg-danger');
-        break;
+            break;
         case 2:
             card.classList.add('bg-warning');
-        break;
+            break;
         default:
             card.classList.add('bg-info');
-    } 
+    }
 
-    let children = card.children[0].children;
-    children[0].innerHTML = task.title;
-    children[1].innerHTML = `Description: ${task.description}`
-    children[2].innerHTML = `Due Date : ${task.dueDate}`
-    children[3].innerHTML = `Priority : ${task.priority}`
-    children[4].innerHTML = `Notes : ${task.notes}`
     let deleteButton = createDeleteButton(task);
     card.appendChild(deleteButton);
     parentTaskCard.appendChild(card)
+    let children = card.children[0].children;
+    let form = children[1].getElementsByClassName('form3');
+    children[0].innerHTML = task.title;
+    form[0].innerHTML = task.description;
+    form[1].value = task.dueDate;
+    form[2].value = parseInt(task.priority);
+    form[3].innerHTML = task.notes;
 
+
+    form[4].addEventListener('click', function(e) {
+        e.preventDefault()
+        editTask(form)
+    })
     card.classList.add("real-task")
     card.classList.remove('d-none');
 }
