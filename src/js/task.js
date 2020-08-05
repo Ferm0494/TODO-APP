@@ -13,11 +13,12 @@ import {
 const deleteTask = (task) => {
     let idProject = task.project
     let arr = tasks(idProject)
-
-    let newArr = arr.filter(x =>
-        x !== task
+    
+    let newArr = arr.filter( x =>
+        x.title !== task.title
     )
-
+        
+    console.log(`New arr ${JSON.stringify(newArr)}`)
     localStorage.setItem(idProject, JSON.stringify(newArr));
     renderTasks(newArr);
 }
@@ -37,8 +38,18 @@ const renderTask = (task) => {
     if (taskContainerList.classList.contains('d-none')) {
         taskContainerList.classList.remove('d-none')
     }
-
+    
     const card = taskCard.cloneNode(true);
+    switch(parseInt(task.priority)) {
+        case 1:
+            card.classList.add('bg-danger');
+        break;
+        case 2:
+            card.classList.add('bg-warning');
+        break;
+        default:
+            card.classList.add('bg-info');
+    } 
 
     let children = card.children[0].children;
     children[0].innerHTML = task.title;
