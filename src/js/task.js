@@ -1,5 +1,6 @@
 import {
-    tasks
+    tasks,
+    renderTasks,
 } from './tasks';
 import {
     taskCard,
@@ -7,24 +8,51 @@ import {
     parentTaskCard
 } from './components';
 
+
+
+const deleteTask = (task) => {
+    let idProject = task.project
+    let arr = tasks(idProject)
+
+    let newArr = arr.filter(x =>
+        x !== task
+    )
+
+    localStorage.setItem(idProject, JSON.stringify(newArr));
+    renderTasks(newArr);
+}
+
+const createDeleteButton = (task) => {
+    let deleteButton = document.createElement("button");
+    deleteButton.innerHTML = "Delete task"
+    deleteButton.id = task.title;
+    deleteButton.addEventListener('click', function(e) {
+        deleteTask(task)
+    })
+    return deleteButton
+}
+
 const renderTask = (task) => {
-    console.log(`This is card ${taskCard}`);
+
     if (taskContainerList.classList.contains('d-none')) {
         taskContainerList.classList.remove('d-none')
     }
 
     const card = taskCard.cloneNode(true);
+
     let children = card.children[0].children;
-    children[0].innerHTML = `Title: ${task.title}`;
+    children[0].innerHTML = task.title;
     children[1].innerHTML = `Description: ${task.description}`
     children[2].innerHTML = `Due Date : ${task.dueDate}`
     children[3].innerHTML = `Priority : ${task.priority}`
     children[4].innerHTML = `Notes : ${task.notes}`
+    let deleteButton = createDeleteButton(task);
+    card.appendChild(deleteButton);
     parentTaskCard.appendChild(card)
+
     card.classList.add("real-task")
     card.classList.remove('d-none');
 }
-
 
 const task = (inputs, project) => {
 
@@ -61,7 +89,6 @@ const task = (inputs, project) => {
     const addTask = () => {
         if (validate()) {
             taskList.push(newTask);
-            console.log(`all tasks for ${newTask.project} are : ${JSON.stringify(taskList)}`);
             localStorage.setItem(newTask.project, JSON.stringify(taskList));
             renderTask(newTask);
         }

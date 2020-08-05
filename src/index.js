@@ -9,7 +9,7 @@ import {
     selectProjects
 } from './js/components'
 import {
-    task
+    task,
 } from './js/task'
 import {
     renderTasks,
@@ -49,6 +49,8 @@ const populateSelect = (arr) => {
             option.innerHTML = element;
             selectProjects.appendChild(option);
         });
+        renderTasks(tasks(selectProjects.value))
+
     }
 }
 
@@ -75,11 +77,8 @@ deleteProjectBtn.addEventListener('click', function(e) {
 
 selectProjects.addEventListener('change', function(e) {
     let arr = tasks(selectProjects.value);
-    console.log(JSON.stringify(arr));
     renderTasks(arr)
 })
-
-
 
 //localStorage.clear()
 populateSelect(library())
