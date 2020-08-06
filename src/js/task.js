@@ -55,6 +55,17 @@ const renderTask = (task) => {
     }
 
     const card = taskCard.cloneNode(true);
+    card.addEventListener('click', function(e){
+        e.preventDefault;
+        const form = card.children[0].children[1];
+        if (e.target.tagName !== 'TEXTAREA' && e.target.tagName!=='INPUT'){
+            if (form.classList.contains('d-none')){
+                form.classList.remove('d-none');
+            }else{
+                form.classList.add('d-none');
+            }
+        }
+    });
     switch (parseInt(task.priority)) {
         case 1:
             card.classList.add('bg-danger');
