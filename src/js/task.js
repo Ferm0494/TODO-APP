@@ -10,11 +10,9 @@ import {
   parentTaskCard,
 } from './components';
 
-
 const editTask = (input, task) => {
   const listOfTasks = tasks(task.project);
   const index = listOfTasks.findIndex(t => t.title === task.title);
-
 
   task.description = input[0].value;
   task.dueDate = input[1].value;
@@ -83,7 +81,6 @@ const renderTask = (task) => {
   form[2].value = parseInt(task.priority, 10);
   form[3].innerHTML = task.notes;
 
-
   form[4].addEventListener('click', (e) => {
     e.preventDefault();
     editTask(form, task);
@@ -132,7 +129,6 @@ const task = (inputs, project) => {
 
   addTask();
 };
-
 
 export {
   task,

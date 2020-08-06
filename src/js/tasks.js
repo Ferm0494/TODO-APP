@@ -12,7 +12,6 @@ import {
 const tasks = (project) => {
   const tasks = localStorage.getItem(project);
 
-
   if (tasks === null || tasks === '') {
     return [];
   }

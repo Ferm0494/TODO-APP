@@ -15,6 +15,7 @@ import {
   renderTasks,
   tasks,
 } from './js/tasks';
+import './stylesheets/index.scss';
 
 const validate = (arr) => {
   if (arr.length > 0) {
@@ -49,7 +50,6 @@ const createProject = () => {
   project(projectName);
   populateSelect(library());
 };
-
 
 document.getElementById('createProject').addEventListener('click', (a) => {
   a.preventDefault();
