@@ -49,17 +49,16 @@ const renderTask = (task) => {
   }
 
   const card = taskCard.cloneNode(true);
-  card.addEventListener('click', (e) => {
+  const taskTitle = card.children[0].children[0];
+  taskTitle.addEventListener('click', (e) => {
     e.preventDefault();
     const form = card.children[0].children[1];
-    if (e.target.tagName !== 'TEXTAREA' && e.target.tagName !== 'INPUT') {
-      if (form.classList.contains('d-none')) {
-        form.classList.remove('d-none');
-      } else {
-        form.classList.add('d-none');
-      }
+    if (form.classList.contains('d-none')) {
+      form.classList.remove('d-none');
+    } else {
+      form.classList.add('d-none');
     }
-  });
+ });
   switch (parseInt(task.priority, 10)) {
     case 1:
       card.classList.add('bg-danger');
