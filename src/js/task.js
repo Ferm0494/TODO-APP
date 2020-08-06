@@ -1,3 +1,5 @@
+/* eslint-disable import/no-cycle */
+
 import {
   tasks,
   renderTasks,
@@ -58,7 +60,7 @@ const renderTask = (task) => {
     } else {
       form.classList.add('d-none');
     }
- });
+  });
   switch (parseInt(task.priority, 10)) {
     case 1:
       card.classList.add('bg-danger');
