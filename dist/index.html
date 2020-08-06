@@ -11,10 +11,12 @@
 
 <body>
     <div>
-        <h2>Welcome to the TODO App</h2>
+        <h2 class="text-center mb-4">Welcome to the TODO App</h2>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-6 ">
+                <div class="col-6">
+                  <div class="border border-dark p-3 rounded mb-2">
+                    <h3>Projects</h5>
                     <form>
                         <label for="projects">Choose a project:</label>
                         <select name="projects" id="projects"></select>
@@ -26,7 +28,9 @@
                         <input id="projectNameField" name="newProject" type="text" />
                         <input id="createProject" type="submit" value="Create project" />
                     </form>
-                    <form class="d-none">
+                  </div>
+                    <form class="d-none border border-dark rounded p-3">
+                        <h3 class="display-5">Add a task</h3>
                         <label for="title">Title</label>
                         <input class="form2" name="title" type="text" required /><br />
                         <label for="description">Description</label>
@@ -50,7 +54,7 @@
             </form>
           </div>
           <div class="col-6 d-none ">
-            <h5></h5>
+            <h3 id="taskListTitle" class="display-5"></h3>
             <ul>
               <li class="task d-none m-2">
                 <div class="container rounded p-4">
