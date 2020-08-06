@@ -80,5 +80,5 @@ selectProjects.addEventListener('change', function(e) {
     renderTasks(arr)
 })
 
-//localStorage.clear()
+// localStorage.clear()
 populateSelect(library())

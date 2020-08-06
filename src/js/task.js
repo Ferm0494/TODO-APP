@@ -8,10 +8,23 @@ import {
     parentTaskCard,
 } from './components';
 
-const editTask = (form) => {
-    //Work on ediTask.
+
+const editTask = (input, task) => {
+    let listOfTasks = tasks(task.project);
+    let index = listOfTasks.findIndex(t => t.title === task.title)
+
+
+    task.description = input[0].value;
+    task.dueDate = input[1].value;
+    task.priority = input[2].value;
+    task.notes = input[3].value;
+
+    listOfTasks[index] = task
+    localStorage.setItem(task.project, JSON.stringify(listOfTasks))
+    alert("Task succ edited!")
 
 }
+
 const deleteTask = (task) => {
     let idProject = task.project
     let arr = tasks(idProject)
@@ -67,7 +80,7 @@ const renderTask = (task) => {
 
     form[4].addEventListener('click', function(e) {
         e.preventDefault()
-        editTask(form)
+        editTask(form, task)
     })
     card.classList.add("real-task")
     card.classList.remove('d-none');
