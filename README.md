@@ -32,7 +32,7 @@ To get a local copy up and running follow these simple example steps:
 
 7. Run **webpack** with `npm run watch`
 
-## See a live demo [Here](https://rawcdn.githack.com/Ferm0494/TODO-APP/b23e510c7569a97fbeab8e9850bc75b7062fbce1/dist/index.html/)
+## See a live demo [Here](https://rawcdn.githack.com/Ferm0494/TODO-APP/d0b4ff66aa1aa5ffaf25a99e1104c3927451bda1/dist/index.html)
 
 ## Show your support
 
