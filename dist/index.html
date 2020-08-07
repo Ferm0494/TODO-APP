@@ -5,11 +5,111 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <title>To do list</title>
 </head>
 
 <body>
-    <script src="main.js"></script>
-</body>
+    <div>
+        <h2 class="text-center mb-4">Welcome to the TODO App</h2>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-6">
+                  <div class="border border-dark p-3 rounded mb-2">
+                    <h3>Projects</h5>
+                    <form>
+                        <label for="projects">Choose a project:</label>
+                        <select name="projects" id="projects"></select>
+                        <input type="submit" class="d-none" id="deleteProjectBtn" value="Delete project" />
+                    </form>
 
+                    <form>
+                        <label for="newProject"> or Create a new project</label>
+                        <input id="projectNameField" name="newProject" type="text" />
+                        <input id="createProject" type="submit" value="Create project" />
+                    </form>
+                  </div>
+                    <form class="d-none border border-dark rounded p-3">
+                        <h3 class="display-5">Add a task</h3>
+                        <label for="title">Title</label>
+                        <input class="form2" name="title" type="text" required /><br />
+                        <label for="description">Description</label>
+                        <textarea class="form2" name="description" type="textarea"></textarea
+              ><br />
+              <label for="dueDate">Due date</label>
+              <input class="form2" name="dueDate" type="date" /><br />
+              <label for="priority">Priority</label>
+              <input
+                class="form2"
+                name="priority"
+                type="number"
+                min="1"
+                max="3"
+              /><br />
+              <label for="notes">Notes</label>
+              <textarea class="form2" name="notes" type="textarea"></textarea
+              ><br />
+
+              <input id="addTask" type="submit" value="Add task" />
+            </form>
+          </div>
+          <div class="col-6 d-none ">
+            <h3 id="taskListTitle" class="display-5"></h3>
+            <ul>
+              <li class="task d-none m-2 rounded p-2">
+                <div class="container rounded p-4">
+                <h6 class="btn font-weight-bold"></h6>
+                  <form class='d-none'>
+                    <label for="description">Description</label>
+                    <textarea
+                      class="form3 w-75"
+                      name="description"
+                      type="textarea"
+                    ></textarea
+                    ><br />
+                    <label for="dueDate">Due date</label>
+                    <input class="form3" name="dueDate" type="date" /><br />
+                    <label for="priority">Priority</label>
+                    <input
+                      class="form3"
+                      name="priority"
+                      type="number"
+                      min="1"
+                      max="3"
+                    /><br />
+                    <label for="notes">Notes</label>
+                    <textarea
+                      class="form3 w-75"
+                      name="notes"
+                      type="textarea"
+                    ></textarea
+                    ><br />
+
+                    <input class="form3" type="submit" value="Edit Task" />
+                  </form>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="main.js"></script>
+  </body>
 </html>
